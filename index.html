@@ -29,7 +29,7 @@
         ws.close();
       }
 
-      ws = new WebSocket('ws://localhost:3000');
+      ws = new WebSocket('ws://ws-lb-test-274420555.ap-southeast-1.elb.amazonaws.com');
       ws.onopen = () => {
         console.log('Connection opened!');
       };
