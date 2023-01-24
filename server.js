@@ -14,10 +14,12 @@ const instanceId = uuid();
 server.on('request', app);
 
 wss.on('connection', function connection(ws) {
+  ws.send(`Running in server ${instanceId}`);
+
   ws.on('message', function incoming(data) {
     wss.clients.forEach(function each(client) {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
-        client.send(data);
+        client.send(`${instanceId} : ${data} `);
       }
     });
   });

@@ -17,6 +17,7 @@
     let ws;
 
     function showMessage(message) {
+      console.log(message);
       messages.textContent += `\n\n${message}`;
       messages.scrollTop = messages.scrollHeight;
       messageBox.value = '';
@@ -45,7 +46,6 @@
       }
 
       ws.send(messageBox.value);
-      showMessage(messageBox.value);
     };
 
     init();
